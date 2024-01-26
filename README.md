@@ -1,6 +1,6 @@
 # Enigma Post (Archived)
 
-Welcome to Enigma Post, a social media platform developed during the learning phase of web development. Please note that this project is intended for educational purposes and is not suitable for production use as it lacks security measures. This repository is now archived, and I am no longer maintaining it.
+Welcome to Enigma Post, a social media platform developed during the learning phase of web development. Please note that this project is intended for educational purposes and is not suitable for production use as it lacks security measures. This repository is now archived, and I am no longer maintaining it. ## I know that's a bad code.
 
 ## Features
 
