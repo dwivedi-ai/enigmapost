@@ -1,0 +1,37 @@
+#imagepost{
+  height: 100%;
+  max-height: 400px;
+  object-fit: contain;
+}
+.mig{
+  margin-top: -20px;
+}
+.bdy{
+  min-height: 100vh;
+  height: auto;
+}
+.imageposter{
+
+  padding: 0px;
+  width: 100%;
+  color: white;
+  font-size: 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+.choosen{
+  margin: 0 auto;
+  align-self: center;
+  width: 100%;
+}
+.butt{
+  margin: 0 auto;
+  align-self: center;
+  width: 100%;
+}

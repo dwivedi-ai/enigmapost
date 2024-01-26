@@ -1,0 +1,66 @@
+<%- include('partials/header.ejs') %>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" charset="utf-8"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<link rel="stylesheet" href="/css/createPost.css">
+
+<section class="text-gray-400 bg-gray-900 body-font bdy">
+
+  <div class="container px-5 py-24 mx-auto flex flex-wrap items-center mig">
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 bg-blue-100 imageposter" id="imager">
+
+      <img class="object-cover object-center rounded bg-blue-100" id="imagepost" style="object-fit:contain;"alt="" src="">
+    </div>
+<div class="lg:w-2/6 md:w-1/2 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+   <h2 class="text-white text-lg font-medium title-font mb-5">Create Post</h2>
+   <div class="relative mb-4">
+    <form id="postform" action="/posting" method="post" enctype="multipart/form-data">
+     <label for="caption" class="leading-7 text-sm text-gray-400">Caption</label>
+     <input type="text" id="caption" name="caption" autocomplete="off" form="postform" class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+   </div>
+   <div class="flex justify-center">
+   <span id="pinger"class="-m-1.5 animate-ping relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+   <button onclick="defaultBtnActive();" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Upload Image</button>
+   
+   <input id="bg"type="text" name="bg" style="display:none;" value="">
+   <input type="file" accept="image/jpeg" id="defaultbtn" name="post" value="" hidden required>&nbsp;
+   <input type="submit" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" value="Post"></input>
+
+   </form>
+</div>
+
+   <p class="text-xs mt-3">Image Upload is necessary.</p>
+ </div>
+</div>
+</section>
+
+<script type="text/javascript">
+
+
+  const defaultbtn = $('#defaultbtn')
+  let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+  function defaultBtnActive(){
+       $("#defaultbtn").click();
+     }
+  $("#defaultbtn").change(async function(){
+    const file = this.files[0];
+    var reader = new FileReader();
+    reader.onload = async function(e) {
+      $('#imagepost').attr('src', e.target.result);
+      $('.choosen').css('visibility','hidden');
+      $('#imagepost').css('object-fit','contain');
+      const colorThief = new ColorThief();
+      var img = new Image();
+      var clr;
+      img.src = e.target.result;
+      clr = await 'rgb('+ colorThief.getColor(img)+')';
+      $('#imager').css('background-color',clr);
+      $('#bg').attr('value',clr);
+      if($('#imagepost').src !== '')
+      {
+        $('#pinger').css('visibility','hidden');
+      }
+    }
+    reader.readAsDataURL(file);
+  });
+</script>

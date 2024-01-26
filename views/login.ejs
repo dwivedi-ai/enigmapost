@@ -1,0 +1,81 @@
+
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/images/icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" charset="utf-8"></script>
+    <!-- Custom styles for this template -->
+    <link href="css/cover.css" rel="stylesheet">
+    <title>Login</title>
+  </head>
+  <body class="d-flex h-100 text-center text-white ">
+    <video playsinline autoplay muted loop id="bgvid">
+      <source src="images/hero.mp4" type="video/mp4">
+    </video>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column viewport-header">
+  <header class="mb-auto">
+    <div>
+      <h3 class="float-md-start mb-0">Enigma Post</h3>
+      <nav class="nav nav-masthead justify-content-center float-md-end">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link"  href="/register">Register</a>
+        <a class="nav-link active" aria-current="page" href="/login">Login</a>
+        <a class="nav-link" href="#">About</a>
+      </nav>
+    </div>
+  </header>
+<style>
+  main{
+    background-color: rgba(0,0,0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+  }
+</style>
+  <main class="px-3">
+    <h1>Login</h1>
+        <form class="forums" action="/login" method="post">
+
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">@</span>
+        <input type="text" class="form-control" name="username" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" required autocomplete="off">
+      </div><br>
+      <div class="input-group">
+        <span class="input-group-text">Password</span>
+        <input type="password" aria-label="Password" class="form-control" name="password" placeholder="Password" required autocomplete="off">
+      </div><br></p>
+
+      <button class="btn btn-md btn-secondary fw-bold border-white bg-white" id="regis">Login</button>
+
+    </form>
+  </main>
+
+  <footer class="mt-auto text-white-100">
+    <br>
+    <p>Created By Ankit Dwivedi</p>
+  </footer>
+</div>
+
+
+  </body>
+</html>

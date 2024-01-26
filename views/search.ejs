@@ -1,0 +1,85 @@
+<%-include('partials/header.ejs')%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style id="react-native-stylesheet">[stylesheet-group="0"]{}
+.r-13awgt0{-ms-flex:1 1 0%;-webkit-flex:1;flex:1;}
+.r-4qtqp9{display:inline-block;}
+.r-ywje51{margin-bottom:auto;margin-left:auto;margin-right:auto;margin-top:auto;}
+.r-hvic4v{display:none;}
+.r-1adg3ll{display:block;}
+.r-12vffkv>*{pointer-events:auto;}
+.r-12vffkv{pointer-events:none!important;}
+.r-14lw9ot{background-color:rgba(255,255,255,1.00);}
+.r-1p0dtai{bottom:0px;}
+.r-1d2f490{left:0px;}
+.r-1xcajam{position:fixed;}
+.r-zchlnj{right:0px;}
+.r-ipm5af{top:0px;}
+.r-yyyyoo{fill:currentcolor;}
+.r-1xvli5t{height:1.25em;}
+.r-dnmrzs{max-width:100%;}
+.r-bnwqim{position:relative;}
+.r-1plcrui{vertical-align:text-bottom;}
+.r-lrvibr{-moz-user-select:none;-ms-user-select:none;-webkit-user-select:none;user-select:none;}
+.r-13gxpu9{color:rgba(29,161,242,1.00);}
+.r-wy61xf{height:72px;}
+.r-u8s1d{position:absolute;}
+.r-1blnp2b{width:72px;}
+.r-1ykxob0{top:60%;}
+.r-1b2b6em{line-height:2em;}
+.r-q4m81j{text-align:center;}</style>
+
+
+
+<section class="text-gray-600 body-font">
+
+  <% for(user of users){ %>
+
+    <% if(data.username == user.username){}else{ %>
+      <div>
+      <a href="/profile/<%=user._id%>" class="ahr">
+        <div class="container px-5 py-24 mx-auto">
+      <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
+        <div class="inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 flex-shrink-0">
+          <span class="dp"><img src="<%= user.profilePic %>" id="dps" style="height:150px; width:150px; border-radius:150px;object-fit:contain;" alt=""></span>
+
+
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+        <h2 class="text-gray-900 text-lg title-font font-medium mb-2">@<%= user.username %>
+        <% if(user.acType=='admin' || user.acType=='verified'){%>
+           <svg viewBox="0 0 24 24" aria-label="Verified account" class="r-13gxpu9 r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg>
+           <%}%>
+        <span class="name">| <%= user.firstname + " " + user.lastname %></span></h2>
+        <p class="leading-relaxed text-base"><%=user.bio%></p>
+       <a class="mt-3 text-blue-500 inline-flex items-center" href="/profile/<%=user._id%>">Go to profile
+         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+           <path d="M5 12h14M12 5l7 7-7 7"></path>
+         </svg>
+       </a>
+     </div>
+      </div>
+      </a>
+      </div>
+    <%}%>
+  <%}%>
+  <center>
+  End of the Results!
+  </center>
+</section>

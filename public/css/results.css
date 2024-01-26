@@ -1,0 +1,46 @@
+/*
+body{
+  display: flex;
+  justify-content: center;
+} */
+
+.results{
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid grey;
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin: 0 auto;
+}
+.uname{
+  font-size: 20px;
+  margin-top: 20px;
+}
+.name{
+  font-size: 20px;
+  margin-top: 20px;
+}
+.resOne{
+  margin-top: 20px;
+  width: 100%;
+  height: 50px;
+  height: 20px;
+}
+hr{
+  color: grey;
+}
+.dp{
+  height: 50px;
+  border-radius: 50px;
+  background-color: white;
+  object-fit: cover;
+}
+img{
+  border-radius: 100%;
+}
+.ahr{
+  display: block;
+
+  text-decoration: none;
+}

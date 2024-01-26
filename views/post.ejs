@@ -1,0 +1,159 @@
+
+  <%- include('partials/header.ejs'); %>
+  <link rel="stylesheet" href="/css/star.css">
+  <style id="react-native-stylesheet">[stylesheet-group="0"]{}
+    .r-13awgt0{-ms-flex:1 1 0%;-webkit-flex:1;flex:1;}
+    .r-4qtqp9{display:inline-block;}
+    .r-ywje51{margin-bottom:auto;margin-left:auto;margin-right:auto;margin-top:auto;}
+    .r-hvic4v{display:none;}
+    .r-1adg3ll{display:block;}
+    .r-12vffkv>*{pointer-events:auto;}
+    .r-12vffkv{pointer-events:none!important;}
+    .r-14lw9ot{background-color:rgba(255,255,255,1.00);}
+    .r-1p0dtai{bottom:0px;}
+    .r-1d2f490{left:0px;}
+    .r-1xcajam{position:fixed;}
+    .r-zchlnj{right:0px;}
+    .r-ipm5af{top:0px;}
+    .r-yyyyoo{fill:currentcolor;}
+    .r-1xvli5t{height:1.25em;}
+    .r-dnmrzs{max-width:100%;}
+    .r-bnwqim{position:relative;}
+    .r-1plcrui{vertical-align:text-bottom;}
+    .r-lrvibr{-moz-user-select:none;-ms-user-select:none;-webkit-user-select:none;user-select:none;}
+    .r-13gxpu9{color:rgba(29,161,242,1.00);}
+    .r-wy61xf{height:72px;}
+    .r-u8s1d{position:absolute;}
+    .r-1blnp2b{width:72px;}
+    .r-1ykxob0{top:60%;}
+    .r-1b2b6em{line-height:2em;}
+    .r-q4m81j{text-align:center;}</style>
+    
+  <section class="text-gray-400 body-font bg-gray-900">
+    <div class="container p-8 mx-auto">
+      <div class="flex flex-wrap w-full mb-20">
+        <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">Hey <%=me.firstname%>, Posts for your feed will be shown below.</h1>
+          <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+        </div>
+        </div></section>
+  <% for (post of posts) {%>
+  <section class="text-gray-400 bg-gray-900 body-font ">
+  <div class="container px-5 mx-auto flex flex-col ">
+
+    <div class="lg:w-4/6 mx-auto border-solid border-4 border-purple-500 rounded-md p-4">
+      <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
+        <div class="inline-flex items-center justify-center">
+
+        <span class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-800 text-gray-600" >
+          <% for (usr of users) {%>
+            <%if (post.username != usr.username) {}else{%>
+              <div class="inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 flex-shrink-0">
+               <img src="<%= usr.profilePic %>" style="height:80px; width:80px; border-radius:150px;object-fit:contain;" alt="">
+    
+              </div>
+              <%}%>
+              <%}%>
+        </span>
+        &nbsp;&nbsp;
+        <span class="inline-flex flex-col items-center text-center justify-center">
+          
+          <h2 class="font-small title-font mt-4 text-white text-lg"><%=post.username%>&nbsp;<% for (us of users) {%>
+            <%if (post.username != us.username) {}else{%><% if(us.acType=='admin' || us.acType=='verified'){%>
+            <svg viewBox="0 0 24 24" aria-label="Verified account" class="r-13gxpu9 r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg>
+            
+  </h2>
+      <%}%>
+    <%}%>
+    <%}%>
+          <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+        </span>
+        
+        </div>
+      </div>
+      <div class="rounded-lg h-auto  overflow-hidden" style="background-color:<%=post.bg%>;">
+        <img alt="content" class="object-cover object-center h-full w-full" height="400px" style="object-fit:contain;max-height:400px;"src="<%=post.image%>">
+      </div>
+      <div class="flex flex-col sm:flex-row mt-10">
+      
+        <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-800 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+          <p class="leading-relaxed text-lg mb-4"><%=post.caption%>
+          <a class="text-indigo-400 inline-flex items-center">Learn More
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          </p>
+          <p class="leading-relaxed text-lg mb-4"><%=post.date%></p>
+          <% for (has of hasLiked){%>
+            <% if(has.postId == post._id && has.haveI != true){%>
+          <div class="hero-like" onclick="loadDoc(this,'<%=post._id%>')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
+              <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/>
+            </svg>
+          </div>
+          <% }else{ if(has.postId == post._id && has.haveI != false){%>
+            <div class="hero-like" onclick="unloadDoc(this,'<%=post._id%>')">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#E1306C" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">
+                <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.964.22.817.533 2.512.062 4.51a9.84 9.84 0 0 1 .443-.05c.713-.065 1.669-.072 2.516.21.518.173.994.68 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.162 3.162 0 0 1-.488.9c.054.153.076.313.076.465 0 .306-.089.626-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.826 4.826 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.616.849-.231 1.574-.786 2.132-1.41.56-.626.914-1.279 1.039-1.638.199-.575.356-1.54.428-2.59z"/>
+              </svg>
+            </div>
+            <%}}}%>
+          &nbsp;&nbsp;
+          <span id="demo">
+            <%for (like of likes){%>
+              <% if (like.postId == post._id){%>
+                <%=like.likes%>
+                <%}%>
+              <%}%>
+              </span>
+    
+<script>
+function loadDoc(element,postId) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      element.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#E1306C" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16"><path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.964.22.817.533 2.512.062 4.51a9.84 9.84 0 0 1 .443-.05c.713-.065 1.669-.072 2.516.21.518.173.994.68 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.162 3.162 0 0 1-.488.9c.054.153.076.313.076.465 0 .306-.089.626-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.826 4.826 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.616.849-.231 1.574-.786 2.132-1.41.56-.626.914-1.279 1.039-1.638.199-.575.356-1.54.428-2.59z"/></svg> Post has been Liked by you!';
+      element.onclick = 'unloadDoc(this, <%=post._id%>)';
+    }
+  };
+  xhttp.open("GET", "/like/"+postId, true);
+  xhttp.send();
+}
+
+
+function unloadDoc(element,postId) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      element.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16"><path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2.144 2.144 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a9.84 9.84 0 0 0-.443.05 9.365 9.365 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111L8.864.046zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a8.908 8.908 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.224 2.224 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.866.866 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/></svg> Post has been disliked by you!';
+      element.onclick = 'loadDoc(this, <%=post._id%>)';
+    }
+  };
+  xhttp.open("GET", "/unlike/"+postId, true);
+  xhttp.send();
+}
+
+</script>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<% }%>
+<section class="text-gray-400 body-font bg-gray-900">
+  <div class="container px-5 py-8 mx-auto">
+    <div class="flex flex-wrap w-full mb-20">
+      <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">End of the results.</h1>
+        <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+      </div>
+      </div></section>
+
+<%- include('partials/footer.ejs')%>
+
+</body>
